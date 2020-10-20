@@ -1,36 +1,38 @@
-# Computer Graphics Gems JP 2015:5．「スキニング分解」 サンプルコード
-本コードは，[Computer Graphics Gems JP 2015](http://www.borndigital.co.jp/book/5498.html,"Computer Graphics Gems JP 2015")の7章「スキニング分解」で紹介しているアルゴリズム"Smooth Skinning Decomposition with Rigid Bones"の実装サンプルです．
+# Computer Graphics Gems JP 2015:5. "Skinning Decomposition" sample code
+This is a sample implementation of the algorithm "Smooth Skinning Decomposition with Rigid Bones" presented in Chapter 7 of [Computer Graphics Gems JP 2015] (http://www.borndigital.co.jp/book/5498.html, "Computer Graphics Gems JP 2015")
 
-## ビルドと実行方法
-本サンプルは Visual Studio 2013 Professional プロジェクトとして作成しています．また，本プロジェクトのビルドには，ライブラリとして [Eigen](http://eigen.tuxfamily.org/ "Eigen") および [QuadProg++](http://quadprog.sourceforge.net/ "QuadProg++") が必要です．なお，ビルドおよび実行テストには Eigen 3.2.4 および QuadProg++ 1.2.1 を用いました．
+## How to Build and Run.
+This is a Visual Studio 2013 Professional project. You will need the libraries [Eigen] (http://eigen.tuxfamily.org/ "Eigen") and [QuadProg++] (http://quadprog.sourceforge.net/ "QuadProg++"). Eigen 3.2.4 and QuadProg++ 1.2.1 were used to build and run tests.
 
-また，メッシュアニメーションのデータを [Mesh Data from Deformation Transfer for Triangle Meshes](http://people.csail.mit.edu/sumner/research/deftransfer/data.html "Mesh Data from 
-Deformation Transfer for Triangle Meshes")からダウンロードし，所定のフォルダに配置する必要もあります．
+You can download the mesh animation data from [Mesh Data from Deformation Transfer for Triangle Meshes] (http://people.csail.mit.edu/sumner/research/deftransfer/data .html and place it in the designated folder.
 
-ビルドと実行のための最も簡単な手順は次の通りです．
+The easiest way to build and run is as follows.
 
-1. Eigenのインストールフォルダにインクルードパスを通す．
-2. QuadProg++をダウンロードし，下記4つのファイルをssdrフォルダにコピーする．
+Pass the include path to the Eigen installation folder.
+Download QuadProg++ and copy the following four files to the ssdr folder.
  * QuadProg++.hh
  * QuadProg++.cc
- * Array.hh
- * Array.cc
-3. [Mesh Data from Deformation Transfer for Triangle Meshes](http://people.csail.mit.edu/sumner/research/deftransfer/data.html "Mesh Data from 
-Deformation Transfer for Triangle Meshes")のページから「Horse gallop animation from the video.」をダウンロードし，圧縮アーカイブに含まれる「horse-gallop-01.obj」から「horse-gallop-reference.obj」の全てのobjファイルを ssdr/data フォルダにコピーする．
-4. Visual Studioを用いてビルド＆実行
+ * Array.hh * Array.cc
+ * QuadProg++.hh * Array.cc
+ 
+3. [Mesh Data from Deformation Transfer for Triangle Meshes](http://people.csail.mit.edu/sumner/research/deftransfer/data.html "Mesh Data From. 
+Download "Horse gallop animation from the video." from "Deformation Transfer for Triangle Meshes") and use "horse-gallop-01.obj" from "horse-gallop-01.obj" in the compressed archive. Copy all obj files of "gallop-reference.obj" to the ssdr/data folder.
+4. build and run with Visual Studio
 
-## 計算パラメータの調整
-SSDRの主な計算パラメータは，HorseObject::OnInit内，HorseObject.cpp の339行目あたり，ssdrParam 構造体に指定されています．
-* numIndices： 各頂点当たりに割り当てられる最大ボーン数
-* numMinBones： 頂点アニメーション近似に用いる最小ボーン数
-* numMaxIterations： 最大反復回数
+## Adjustment of calculation parameters.
+The main parameters of SSDR are specified in the ssdrParam structure around line 339 of HorseObject.cpp in HorseObject::OnInit.
+* numIndices: Maximum number of bones allocated per vertex.
+* numMinBones: The minimum number of bones used to approximate a vertex animation.
+* numMaxIterations: maximum number of iterations.
 
-これら3つのパラメータの変更することで，それにともなう計算結果の変化を確認いただけると思います．
+By changing these three parameters, you can see the changes in the calculation results.
 
-## 参考文献
+## References.
 
 1. Binh Huy Le and Zhigang Deng, Smooth Skinning Decomposition with Rigid Bones, ACM Transactions on Graphics, 31 (6), (2012), 199:1-199:10.
 2. Binh Huy Le and Zhigang Deng, Robust and Accurate Skeletal Rigging from Mesh Sequences, ACM Transactions on Graphics, 33 (4), (2014), 84:1-84:10.
 
-## 変更履歴
-1. 2015/08/24 初版公開
+## Change history.
+1. 24/08/2015 First published on 24/08/2015
+
+Translated with www.DeepL.com/Translator (free version)
